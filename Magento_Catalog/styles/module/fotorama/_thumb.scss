@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .fotorama__thumb {
     position: relative;
     overflow: hidden;
@@ -44,7 +46,7 @@
             width: 100%;
             @include fotorama-abs-center();
             .ie9 & {
-                margin: (-$fotorama-thumb-arrow / 2) 0 0 (-$fotorama-thumb-arrow / 2);
+                margin: (math.div(-$fotorama-thumb-arrow, 2)) 0 0 (math.div(-$fotorama-thumb-arrow, 2));
             }
         }
 

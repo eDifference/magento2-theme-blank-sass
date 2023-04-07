@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 //
 //  Grid mixins
 //  _____________________________________________
@@ -97,16 +99,16 @@ $grid-width    : ($column-width * $total-columns) + ($gutter-width * ($total-col
             $showgutter: false;
             @include lib-inline-column($showgutter);
             @include lib-span(
-                $span,
-                $total-columns
+                    $span,
+                    $total-columns
             );
         }
         @if $end-column == true {
             $showgutter: false;
             @include lib-inline-column($showgutter);
             @include lib-span(
-                $span,
-                $total-columns
+                    $span,
+                    $total-columns
             );
             @include lib-inline-end-column();
         }
@@ -138,8 +140,8 @@ $grid-width    : ($column-width * $total-columns) + ($gutter-width * ($total-col
 
 @mixin lib-span($span) {
     @include lib-column-width(
-        $span,
-        $total-columns
+            $span,
+            $total-columns
     );
 }
 
@@ -149,8 +151,8 @@ $grid-width    : ($column-width * $total-columns) + ($gutter-width * ($total-col
 ) {
     @if isnumber($total-columns) {
         @include lib-column-width(
-            $span,
-            $total-columns
+                $span,
+                $total-columns
         );
         @include lib-column-gutter($total-columns);
     }
@@ -205,7 +207,7 @@ $grid-width    : ($column-width * $total-columns) + ($gutter-width * ($total-col
     $span,
     $total-columns: $total-columns
 ) {
-    $calc-column-width: 100% * (((($gutter-width+$column-width) * $span)-$gutter-width) / $grid-width);
+    $calc-column-width: 100% * math.div($gutter-width + $column-width * $span - $gutter-width, $grid-width);
 
     @include lib-css(width, $calc-column-width);
 }

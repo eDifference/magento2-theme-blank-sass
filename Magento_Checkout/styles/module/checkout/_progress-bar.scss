@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 //
 //  Variables
 //  _____________________________________________
@@ -47,7 +49,7 @@ $checkout-progress-bar-item-element-inner__active__line-height : 1 !default;
 
     &:before { // Horizontal line
         @include lib-css(background, $checkout-progress-bar-item__background-color);
-        @include lib-css(top, $checkout-progress-bar-item-element__width/2);
+        @include lib-css(top, math.div($checkout-progress-bar-item-element--width, 2));
         content: '';
         height: 7px;
         left: 0;
@@ -86,7 +88,7 @@ $checkout-progress-bar-item-element-inner__active__line-height : 1 !default;
         &:after {
             @include lib-css(background, $checkout-progress-bar-item__background-color);
             @include lib-css(height, $checkout-progress-bar-item-element__height);
-            @include lib-css(margin-left, -($checkout-progress-bar-item-element__width/2));
+            @include lib-css(margin-left, -(math.div($checkout-progress-bar-item-element--width, 2)));
             @include lib-css(width, $checkout-progress-bar-item-element__width);
             border-radius: 50%;
             content: '';
@@ -98,7 +100,7 @@ $checkout-progress-bar-item-element-inner__active__line-height : 1 !default;
         &:after { // Item element inner
             @include lib-css(background, $checkout-progress-bar-item-element-inner__background-color);
             @include lib-css(height, $checkout-progress-bar-item-element-inner__height);
-            @include lib-css(margin-left, -($checkout-progress-bar-item-element-inner__width/2));
+            @include lib-css(margin-left, -(math.div($checkout-progress-bar-item-element-inner--width, 2)));
             @include lib-css(top, $checkout-progress-bar-item-element-outer-radius__width);
             @include lib-css(width, $checkout-progress-bar-item-element-inner__width);
             content: counter(i);

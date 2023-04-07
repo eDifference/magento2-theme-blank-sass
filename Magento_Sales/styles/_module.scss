@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .order-links {
     border-bottom: $border-width__base solid $border-color__base;
     margin-bottom: 10px;
@@ -351,7 +353,7 @@
 
     .page-title-wrapper {
         .order-date {
-            $order-status-indent: ceil($h1__margin-bottom__desktop/2);
+            $order-status-indent: ceil(math.div($h1--margin-bottom--desktop, 2));
             @include lib-css(margin-top, -$order-status-indent);
         }
     }

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .fotorama__arr__arr {
     .fotorama__arr & {
         @extend .fotorama-sprite;
@@ -6,7 +8,7 @@
         @include fotorama-abs-center();
 
         .ie9 & {
-            margin: (-$size-fotorama-block / 2) 0 0 (-$size-fotorama-block / 2);
+            margin: (math.div(-$size-fotorama-block, 2)) 0 0 (math.div(-$size-fotorama-block, 2));
         }
     }
 

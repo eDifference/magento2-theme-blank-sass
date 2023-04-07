@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 //
 //  Variables
 //  _____________________________________________
@@ -61,7 +63,7 @@ $braintree-paypal-account__padding-vertical : 15px !default;
                     padding-bottom: inherit;
                     padding-top: inherit;
                     position: absolute;
-                    right: -$distance / 2;
+                    right: math.div(-$distance, 2);
                     top: 5px;
                 }
             }
@@ -99,8 +101,8 @@ $braintree-paypal-account__padding-vertical : 15px !default;
     );
 
     &:before {
-        left: $braintree-paypal-account__padding-right / 2 - $braintree-paypal-icon__width / 2;
-        margin-top: -$braintree-paypal-icon__height / 2;
+        left: math.div($braintree-paypal-account--padding-right, 2) - math.div($braintree-paypal-icon--width, 2);
+        margin-top: math.div(-$braintree-paypal-icon--height, 2);
         position: absolute;
         top: 50%;
     }

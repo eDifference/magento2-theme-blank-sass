@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 //
 //  Lib -> Components -> Modals
 //  _____________________________________________
@@ -205,7 +207,7 @@ body {
     }
 
     .modal-header {
-        @include lib-css(padding-bottom, $modal-popup__padding / 2.5);
+        @include lib-css(padding-bottom, math.div($modal-popup--padding, 2.5));
         @include lib-css(padding-top, $modal-popup__padding);
     }
 

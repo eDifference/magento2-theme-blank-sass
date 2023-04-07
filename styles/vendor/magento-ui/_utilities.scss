@@ -1,3 +1,6 @@
+@use 'sass:math';
+@use 'sass:string';
+
 //
 //  Utilities
 //  _____________________________________________
@@ -8,7 +11,7 @@
 
 @function strip-unit($number) {
     @if type-of($number) == 'number' and not unitless($number) {
-        @return $number / ($number * 0 + 1);
+        @return math.div($number, $number * 0 + 1);
     }
 
     @return $number;
@@ -21,11 +24,14 @@
 @function lib-font-size-value($_value) {
     @if $font-size-unit-convert {
         @if $_value != false and $_value != '' {
-            $_value: strip-unit($_value) / $font-size-unit-ratio;
-            @if $_value > 0 {
-                $_value: $_value * 1#{$font-size-unit};
+            $_value: math.div(strip-unit($-value), $font-size-unit-ratio);
+            @if $font-size-unit == 'rem' {
+                @return $_value * 1rem;
             }
-            @return $_value;
+            @if $font-size-unit == 'em' {
+                @return $_value * 1em;
+            }
+            @return $_value * 1px;
         }
     }
     @else {

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 //
 //  Components -> Modals
 //  _____________________________________________
@@ -80,7 +82,7 @@ $modal-slide-action-close__padding    : $modal-slide-header__padding-vertical - 
     }
 
     .page-main-actions {
-        margin-bottom: calc(#{$modal-slide-header__padding-vertical} - #{$indent__l / 2});
+        margin-bottom: calc(#{$modal-slide-header__padding-vertical} - #{ math.div($indent--l, 2)});
         margin-top: $modal-slide-header__padding-vertical;
     }
 }
